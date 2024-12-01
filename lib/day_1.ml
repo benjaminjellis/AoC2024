@@ -1,6 +1,6 @@
 open Base
 
-let rec parse_input (input : string list) left_list right_list =
+let rec parse_input input left_list right_list =
   match input with
   | h :: t ->
     let el = String.split h ~on:' ' in
