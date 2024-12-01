@@ -1,2 +1,4 @@
 (library
- (name AoC2024))
+ (name AoC2024)
+ (libraries base stdio)
+ )
