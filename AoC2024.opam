@@ -4,6 +4,9 @@ synopsis: "AoC 2024 in OCam"
 depends: [
   "ocaml"
   "dune" {>= "3.16"}
+  "base"
+  "clap"
+  "stdio"
   "odoc" {with-doc}
 ]
 build: [
