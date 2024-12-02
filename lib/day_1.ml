@@ -22,17 +22,20 @@ let part_one left_list right_list =
   Int.to_string total_distance
 ;;
 
-let rec count_occurrences list lookup count =
-  match list with
-  | h :: t ->
-    let new_count = if h = lookup then count + 1 else count in
-    count_occurrences t lookup new_count
-  | [] -> count
+let count_occurrences list lookup =
+  let rec aux list lookup count =
+    match list with
+    | h :: t ->
+      let new_count = if h = lookup then count + 1 else count in
+      aux t lookup new_count
+    | [] -> count
+  in
+  aux list lookup 0
 ;;
 
 let part_two left_list right_list =
   let res =
-    List.map left_list ~f:(fun x -> count_occurrences right_list x 0 * x)
+    List.map left_list ~f:(fun x -> count_occurrences right_list x * x)
     |> List.sum (module Int) ~f:Fn.id
   in
   Int.to_string res
